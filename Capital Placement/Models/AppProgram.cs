@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Capital_Placement.Models
 {
-    public class Program
+    public class AppProgram
     {
         public int Id { get; set; }
         public string Title { get; set; } = string.Empty;
@@ -16,7 +16,8 @@ namespace Capital_Placement.Models
         public PersonalInfo IdNumber { get; set; } = new PersonalInfo();
         public PersonalInfo DOB { get; set; } = new PersonalInfo();
         public PersonalInfo Gender { get; set; } = new PersonalInfo();
-        public List<Question> Questions { get; set; } = [];
+        public List<Question> PersonalQuestions { get; set; } = [];
+        public List<Question> CustomQuestions { get; set; } = [];
     }
 
     public class PersonalInfo {
