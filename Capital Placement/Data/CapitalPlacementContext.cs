@@ -9,25 +9,18 @@ namespace Capital_Placement.Data
 {
     public class CapitalPlacementContext: DbContext
     {
-        public DbSet<AppProgram>? Programs { get; set; }
-        public DbSet<Application>? Applications { get; set; }
+        public CapitalPlacementContext(DbContextOptions options) : base(options) { }
+        public DbSet<AppProgram> AppPrograms { get; set; }
+        public DbSet<Application> Applications { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseCosmos(
-                "https://localhost:8081",
-                "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
-                "CapitalPLacementDb"
-            );
-        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAutoscaleThroughput(1000);
 
-            modelBuilder.HasDefaultContainer("Products");
+            modelBuilder.HasDefaultContainer("AppPrograms");
 
             modelBuilder.Entity<AppProgram>()
-                .ToContainer("Programs")
+                .ToContainer("AppPrograms")
                 .HasPartitionKey(p => p.Id);
 
             modelBuilder.Entity<Application>()
