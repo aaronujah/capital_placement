@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Capital Placement")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bf563064db7b4476c8653457b9979ee336f657bd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+13b500aee448dc8a858deacf93b0ec69693d89d5")]
 [assembly: System.Reflection.AssemblyProductAttribute("Capital Placement")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Capital Placement")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
