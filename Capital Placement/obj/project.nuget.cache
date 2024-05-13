@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "4U4xrt85/bjFoZDxjJbCU3SAkmdYOG09tYVbtKfz+4XOrJ1GlTXNQPzhukOMVtsIjTZ5F8dRy7nZ3Uz5is052Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\V M C\\Desktop\\1_0\\DOTNET\\Capital Placement\\Capital Placement\\Capital Placement.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\V M C\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\V M C\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\V M C\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "C:\\Users\\V M C\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "C:\\Users\\V M C\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "C:\\Users\\V M C\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}
