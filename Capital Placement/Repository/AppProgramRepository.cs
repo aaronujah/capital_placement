@@ -50,16 +50,26 @@ namespace Capital_Placement.Repository
 
         public async Task<AppProgram?> Update(Guid appProgramId, AppProgram appProgram)
         {
-            var existingStock = await _context.AppPrograms.FirstOrDefaultAsync(x => x.Id == appProgramId);
+            var existingAppProgram = await _context.AppPrograms.FirstOrDefaultAsync(x => x.Id == appProgramId);
 
-            if (existingStock == null)
+            if (existingAppProgram == null)
             {
                 return null;
-            }
+            };
+                existingAppProgram.Title = appProgram.Title;
+                existingAppProgram.Description = appProgram.Description;
+                existingAppProgram.Phone = appProgram.Phone;
+                existingAppProgram.Nationality = appProgram.Nationality;
+                existingAppProgram.CurrentResidence = appProgram.CurrentResidence;
+                existingAppProgram.IdNumber = appProgram.IdNumber;
+                existingAppProgram.DOB = appProgram.DOB;
+                existingAppProgram.Gender = appProgram.Gender;
+                existingAppProgram.PersonalQuestions = appProgram.PersonalQuestions;
+                existingAppProgram.CustomQuestions = appProgram.CustomQuestions;
 
             await _context.SaveChangesAsync();
 
-            return existingStock;
+            return existingAppProgram;
         }
     }
 }

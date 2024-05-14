@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Capital_Placement.Dtos.AppProgram;
 using Capital_Placement.Interfaces;
+using Capital_Placement.Mappers;
 using Capital_Placement.Models;
 using Capital_Placement.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -23,11 +25,15 @@ namespace Capital_Placement.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Add(AppProgram appProgram)
+        public async Task<IActionResult> Create([FromBody] CreateAppProgramDto appProgramDto)
         {
-            var result = await _appProgramService.Create(appProgram);
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-            return Ok(result);
+            var appProgram = appProgramDto.ToAppProgramFromCreateDto();
+            await _appProgramService.Create(appProgram);
+
+            return CreatedAtAction(nameof(GetById), new { appProgramId = appProgram.Id }, appProgram.ToAppProgramDto());
         }
        
         [HttpGet]
@@ -35,41 +41,52 @@ namespace Capital_Placement.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetAll()
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var result = await _appProgramService.GetAll();
 
             return Ok(result);
         }
 
-        [HttpGet("{appProgramId}")]
+        [HttpGet("{appProgramId:guid}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetById(Guid appProgramId)
+        public async Task<IActionResult> GetById([FromRoute]Guid appProgramId)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var appProgram = await _appProgramService.GetById(appProgramId);
 
             if (appProgram == null) return NotFound();
 
-            return Ok(appProgram);
+            return Ok(appProgram.ToAppProgramDto());
         }
 
-        [HttpPut]
+        [HttpPut("{appProgramId:guid}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Update(Guid appProgramId, AppProgram appProgram)
+        public async Task<IActionResult> Update([FromRoute]Guid appProgramId, [FromBody] UpdateAppProgramDto appProgramDto)
         {
-            var result = await _appProgramService.Update(appProgramId, appProgram);
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-            if (result == null) return BadRequest();
+            var result = await _appProgramService.Update(appProgramId, appProgramDto.ToAppProgramFromUpdateDto());
 
-            return Ok(result);
+            if (result == null) return NotFound("Program not found");
+
+            return Ok(result.ToAppProgramDto());
         }
 
-        [HttpDelete("{appProgramId}")]
+        [HttpDelete("{appProgramId:guid}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Delete(Guid appProgramId)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
             var result = await _appProgramService.Delete(appProgramId);
 
