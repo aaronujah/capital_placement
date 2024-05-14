@@ -27,6 +27,26 @@ namespace Capital_Placement.Mappers
         }
 
         public static AppProgram ToAppProgramFromCreateDto(this CreateAppProgramDto appProgramDto){
+           //Remove unnnecessary values if the question type is not DropDown
+            var personalQuestions = appProgramDto.PersonalQuestions.Select(question => {
+                if (question.Type != QuestionType.DropDown){
+                    question.MaxChoice = null;
+                    question.MultipleChoice = null;
+                    question.Other = null;
+                }
+                return question;
+            }).ToList();
+           
+           //Remove unnnecessary values if the question type is not DropDown
+            var customQuestions = appProgramDto.CustomQuestions.Select(question => {
+                if (question.Type != QuestionType.DropDown){
+                    question.MaxChoice = null;
+                    question.MultipleChoice = null;
+                    question.Other = null;
+                }
+                return question;
+            }).ToList();
+
             return new AppProgram
             {
                 Title = appProgramDto.Title,
@@ -37,12 +57,32 @@ namespace Capital_Placement.Mappers
                 IdNumber = appProgramDto.IdNumber,
                 DOB = appProgramDto.DOB,
                 Gender = appProgramDto.Gender,
-                PersonalQuestions = appProgramDto.PersonalQuestions,
-                CustomQuestions = appProgramDto.CustomQuestions
+                PersonalQuestions = personalQuestions,
+                CustomQuestions = customQuestions,
             };
         }
        
         public static AppProgram ToAppProgramFromUpdateDto(this UpdateAppProgramDto appProgramDto){
+            //Remove unnnecessary values if the question type is not DropDown
+            var personalQuestions = appProgramDto.PersonalQuestions.Select(question => {
+                if (question.Type != QuestionType.DropDown){
+                    question.MaxChoice = null;
+                    question.MultipleChoice = null;
+                    question.Other = null;
+                }
+                return question;
+            }).ToList();
+           
+           //Remove unnnecessary values if the question type is not DropDown
+            var customQuestions = appProgramDto.CustomQuestions.Select(question => {
+                if (question.Type != QuestionType.DropDown){
+                    question.MaxChoice = null;
+                    question.MultipleChoice = null;
+                    question.Other = null;
+                }
+                return question;
+            }).ToList();
+
             return new AppProgram
             {
                 Title = appProgramDto.Title,
@@ -53,8 +93,8 @@ namespace Capital_Placement.Mappers
                 IdNumber = appProgramDto.IdNumber,
                 DOB = appProgramDto.DOB,
                 Gender = appProgramDto.Gender,
-                PersonalQuestions = appProgramDto.PersonalQuestions,
-                CustomQuestions = appProgramDto.CustomQuestions
+                PersonalQuestions = personalQuestions,
+                CustomQuestions = customQuestions,
             };
         }
     }

@@ -2074,11 +2074,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\V M C\\Desktop\\1_0\\DOTNET\\Capital Placement\\Capital Placement\\Capital Placement.csproj",
+      "projectUniqueName": "C:\\Users\\V M C\\Desktop\\1_0\\DOTNET\\Capital Placement\\Capital Placement\\Capital Placement.csproj",
       "projectName": "Capital Placement",
-      "projectPath": "c:\\Users\\V M C\\Desktop\\1_0\\DOTNET\\Capital Placement\\Capital Placement\\Capital Placement.csproj",
+      "projectPath": "C:\\Users\\V M C\\Desktop\\1_0\\DOTNET\\Capital Placement\\Capital Placement\\Capital Placement.csproj",
       "packagesPath": "C:\\Users\\V M C\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\V M C\\Desktop\\1_0\\DOTNET\\Capital Placement\\Capital Placement\\obj\\",
+      "outputPath": "C:\\Users\\V M C\\Desktop\\1_0\\DOTNET\\Capital Placement\\Capital Placement\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
