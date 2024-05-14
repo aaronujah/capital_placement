@@ -9,7 +9,7 @@ namespace Capital_Placement.Models
     public class Answer
     {
         public string QuestionTitle { get; set; } = string.Empty;
-        [EnumDataType(typeof(QuestionType))]
+        [Required, EnumDataType(typeof(QuestionType))]
         public QuestionType Type { get; set; }
         public string ParagraphAnswer { get; set; } = string.Empty;
         public Boolean YesNoAnswer { get; set; }

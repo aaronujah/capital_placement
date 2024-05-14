@@ -18,7 +18,7 @@ namespace Capital_Placement.Models
         public string CurrentResidence { get; set; } = string.Empty;
         public string IdNumber { get; set; } = string.Empty;
         public DateTime? DOB { get; set; } 
-        [EnumDataType(typeof(Gender))]
+        [Required, EnumDataType(typeof(Gender))]
         public Gender? Gender { get; set; }
         public List<Answer> PersonalQuestions { get; set; } = [];
         public List<Answer> CustomQuestions { get; set; } = [];
@@ -26,7 +26,7 @@ namespace Capital_Placement.Models
 
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum Gender{
-        Male,
+        Male=1,
         Female,
         Other
     }
