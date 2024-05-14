@@ -18,6 +18,10 @@ namespace Capital_Placement.Configuration
             services.AddScoped<IAppProgramService, AppProgramService>();
 
             services.AddScoped<IAppProgramRepository, AppProgramRepository>();
+            
+            services.AddScoped<IApplicationService, ApplicationService>();
+
+            services.AddScoped<IApplicationRepository, ApplicationRepository>();
 
             return services;
         }

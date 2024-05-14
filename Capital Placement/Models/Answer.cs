@@ -8,13 +8,14 @@ namespace Capital_Placement.Models
 {
     public class Answer
     {
+        [Required] 
         public string QuestionTitle { get; set; } = string.Empty;
         [Required, EnumDataType(typeof(QuestionType))]
         public QuestionType Type { get; set; }
-        public string ParagraphAnswer { get; set; } = string.Empty;
-        public Boolean YesNoAnswer { get; set; }
-        public List<string> DropDownAnswer { get; set; } = [];
-        public DateTime DateTimeAnswer { get; set; }
-        public int NumberAnswer { get; set; }
+        public string? ParagraphAnswer { get; set; }
+        public Boolean? YesNoAnswer { get; set; }
+        public List<string>? DropDownAnswer { get; set; }
+        public DateTime? DateTimeAnswer { get; set; }
+        public int? NumberAnswer { get; set; }
     }
 }
